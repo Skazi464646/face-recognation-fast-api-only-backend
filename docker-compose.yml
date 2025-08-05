@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: face_recognition_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    networks:
+      - face_recognition_network
+    restart: unless-stopped
+
+  face_recognition_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: face_recognition_api
+    ports:
+      - "8000:8000"
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+      - QDRANT_COLLECTION_NAME=face_embeddings
+      - FACE_RECOGNITION_THRESHOLD=0.6
+      - FACE_DETECTION_CONFIDENCE=0.5
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - DEBUG=False
+    depends_on:
+      - qdrant
+    networks:
+      - face_recognition_network
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app  # For development hot reload
+
+volumes:
+  qdrant_storage:
+    driver: local
+
+networks:
+  face_recognition_network:
+    driver: bridge 
