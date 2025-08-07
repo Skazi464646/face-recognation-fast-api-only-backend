@@ -1,4 +1,15 @@
 # Face Recognition API
+Screen Shots - 
+
+<img width="1512" height="982" alt="Screenshot 2025-08-05 at 5 33 53 AM" src="https://github.com/user-attachments/assets/c55b8275-d4d1-4726-b607-bac09dc601bd" />
+<img width="1512" height="982" alt="Screenshot 2025-08-05 at 5 34 12 AM" src="https://github.com/user-attachments/assets/720a1c61-386f-4cc2-aa20-9c387534a798" />
+<img width="1512" height="982" alt="Screenshot 2025-08-05 at 5 34 30 AM" src="https://github.com/user-attachments/assets/8c54be61-138b-4722-8a2d-7e7a21ea0181" />
+<img width="1509" height="379" alt="Screenshot 2025-08-05 at 5 35 42 AM" src="https://github.com/user-attachments/assets/5d48817c-0aaf-4ab7-8bb7-81eb8db90a83" />
+<img width="1512" height="982" alt="Screenshot 2025-08-05 at 5 33 46 AM" src="https://github.com/user-attachments/assets/c6321eca-71a3-4aa5-b2c3-89070d4823ea" />
+
+
+
+
 
 A robust face recognition API built with FastAPI that provides face embedding extraction, storage, and verification capabilities.
 
